@@ -33,13 +33,8 @@
               <td>$ {{$row->inprice}}</td>
               <td>$ {{$row->outprice}}</td>
           <td>
-              <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-              <button class="btn btn-primary btn-xs" data-name="{{$row->name}}"
-                                                      data-qty="{{$row->qty}}"
-                                                      data-inprice="{{$row->inprice}}"
-                                                      data-outprice="{{$row->outprice}}"                                                                                                          
-                                                      data-editor1="{!! nl2br($row->description)!!}"
-               data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i></button>
+              <button class="btn btn-success btn-xs" onclick="Edit({{$row->id}})"><i class="fa fa-check"></i></button>
+              <button class="btn btn-primary btn-xs edit"><i class="fa fa-pencil"></i></button>
               <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
             </td>
           </tr>
@@ -122,8 +117,9 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-12">
-            <form action="{{ route('updatepro') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('updatepro') }}" method="POST" enctype="multipart/form-data" id="editform">
               @csrf
+              @method('PUT')
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-group">
@@ -184,33 +180,30 @@
 </div>
 @endsection
 @section('js')
+<script type="text/javascript">
 
-<script>
-  
-  // CKEDITOR.replace('editor');
-  //  CKEDITOR.replace('editor1');
-  $(document).ready(function(){
-    $("#addnewpro").click(function(){
-      $("#addnewp").modal();
-    });
-  });
-  $('#edit').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget)
-  var name = button.data('name')
-  var qty = button.data('qty')
-  var inprice = button.data('inprice')
-  var outprice = button.data('outprice')
-  var editor1 = button.data('editor1')
-  var modal = $(this)
-  modal.find('.modal-body #name').val(name);
-  modal.find('.modal-body #qty').val(qty);
-  modal.find('.modal-body #inprice').val(inprice);
-  modal.find('.modal-body #outprice').val(outprice);
-  modal.find('.modal-body #editor1').val(editor1);
-});
-// (function(){
-//         $(".modal").on("hidden.bs.modal", function(){
-//         });
-// });
-  </script>
+    $(document).ready(function(){
+      var table=$('#hidden-table-info').DataTable();
+      //Start Edit Record
+      table.on('click','.edit',function(){
+        $tr=$(this).closest('tr');
+        if($($tr).hasClass(){
+          $tr=$tr.prev('.parent');
+        }
+        var data = table.row($tr).data();
+        console.log(data);
+        $('#name').val(data[1]);
+        $('#qty').val(data[2]);
+        $('#inprice').val(data[3]);
+        $('#outprice').val(data[4]);
+        $('#onorder').val(data[5]);
+       
+       $('#editform').attr('action', 'updatepro'+data[0]);
+       $('#edit').modal('show');
+        );
+      });
+      }
+    );
+
+</script>
 @endsection
