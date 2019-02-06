@@ -1,22 +1,25 @@
 @extends('layouts.app')
+@section('css')
+<link rel="stylesheet" href="{{ URL::asset("assets/lib/DataTables/datatables.min.css")}}"/>  
+@endsection
 @section('content')
 <!-- row -->
 <div class="row mt">
   <div class="col-md-12">
-      <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+      <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered text-center" id="product-table">
         <h4>PRODUCT</h4>
         <button class="btn btn-primary fa fa-plus-circle" id="addnewpro"> Add New</button>
         <hr>
         <thead>
           <tr>
-            <th>No</th>
-            <th class="hidden-phone"> Name</th>
-            <th>Company</th>
-            <th>Category</th>
-            <th>QTY</th>
-            <th>Price In</th>
-            <th>Price Out</th>
-            <th><i class="fa fa-edit"></i>Status</th>
+            <th class="text-center">No</th>
+            <th class="hidden-phone text-center"> Name</th>
+            <th class="text-center">Company</th>
+            <th class="text-center">Category</th>
+            <th class="text-center">QTY</th>
+            <th class="text-center">Price In</th>
+            <th class="text-center">Price Out</th>
+            <th class="text-center"><i class="fa fa-edit"></i> Status</th>
           </tr>
         </thead>
         <?php
@@ -24,7 +27,7 @@
             ?>
             @foreach ($pro as $row)
         <tbody>                       
-          <tr>
+          {{-- <tr>
               <td>{{$i++}}</td>
               <td>{{$row->name}}</td>
               <td>{{$row->sup_name}}</td>
@@ -37,7 +40,7 @@
               <button class="btn btn-primary btn-xs edit"><i class="fa fa-pencil"></i></button>
               <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
             </td>
-          </tr>
+          </tr> --}}
         </tbody>
         @endforeach
       </table>
@@ -180,30 +183,26 @@
 </div>
 @endsection
 @section('js')
-<script type="text/javascript">
+<script type="text/javascript" src="{{ URL::asset("assets/lib/DataTables/datatables.min.js")}}"></script>
+<script>
+  var table1=$('#product-table').DataTable(
+    {
+              processing:true,
+              serverSide:true,
+              ajax:"{{ route('viewspro')}}",
+              column:[
+                {data:'id',name:'id'},
+                {data:'name',name:'name'},
+                {data:'supid',name:'supiid'},
+                {data:'catid',name:'catid'},
+                {data:'qty',name:'qty'},
+                {data:'inprice',name:'inprice'},
+                {data:'outprice',name:'outprice'},
+                {data:'status',name:'status',
+                orderable:false,searchacle:false},
+              ],
 
-    $(document).ready(function(){
-      var table=$('#hidden-table-info').DataTable();
-      //Start Edit Record
-      table.on('click','.edit',function(){
-        $tr=$(this).closest('tr');
-        if($($tr).hasClass(){
-          $tr=$tr.prev('.parent');
-        }
-        var data = table.row($tr).data();
-        console.log(data);
-        $('#name').val(data[1]);
-        $('#qty').val(data[2]);
-        $('#inprice').val(data[3]);
-        $('#outprice').val(data[4]);
-        $('#onorder').val(data[5]);
-       
-       $('#editform').attr('action', 'updatepro'+data[0]);
-       $('#edit').modal('show');
-        );
-      });
-      }
-    );
-
+    }
+  );
 </script>
 @endsection

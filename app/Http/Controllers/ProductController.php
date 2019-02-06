@@ -10,18 +10,21 @@ Use Auth;
 use Image;
 use DeepCopy\TypeFilter\ReplaceFilter;
 use Illuminate\Support\Facades\DB;
-
+use Yajra\DataTables\DataTables;
 class ProductController extends Controller
 {
  
     public function index(){
         $sup=Supplier::all();
         $cat=Category::all();
-        // $pro=DB::select('select * from products where active=?',[1]);
         $pro=Product::join('supplier','supplier.id','products.supid')->join('category','category.id','products.catid')->
         select('products.name','products.qty','products.inprice','products.outprice','products.description','supplier.com_name as sup_name','category.category')->where('products.active',1)->get();
-        // dd($pro);
-        return view('product.views',['pro'=>$pro,'sup'=>$sup,'cat'=>$cat]);
+        return DataTables::of($pro)
+                ->addColumn('action',function($pro){
+                    '<a onclick="showData('.$pro->id.')" class="btn btn-sm btn-success"></a>'.' '.
+                    '<a onclick="Edit('.$pro->id.')" class="btn btn-primary btn-xs"></a>'.' '.
+                    '<a onclick="Delete('.$pro->id.')" class="btn btn-primary btn-xs"></a>';
+                })->make(true);
     }
     public function insert(Request $request){
         $pro=new Product;

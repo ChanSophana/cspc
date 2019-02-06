@@ -19,8 +19,7 @@
   <link href="{{ URL::asset("assets/css/style.css")}}" rel="stylesheet"/>
   <link href="{{ URL::asset("assets/css/style-responsive.css")}}" rel="stylesheet"/>
   <script type="text/javascript" src="{{ URL::asset("assets/lib/ckeditor/ckeditor.js")}}"></script>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"/>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"/>
+  @yield('css');
 </head>
 <body>
   <section id="container">

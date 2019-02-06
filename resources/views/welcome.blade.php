@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ustora Demo</title>
+    <title>WWW.CSPC.COM</title>
     <link rel="shortcut icon" href="{{ URL::asset("favicon.ico")}}">
     
     <!-- Google Fonts -->
@@ -102,6 +102,45 @@
 								Apple <span class="primary">Store <strong>Ipod</strong></span>
 							</h2>
 							<h4 class="caption subtitle">& Phone</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+						</div>
+                    </li>
+                    <li><img src="{{ URL::asset("assets/homepage/img/h4-slide4.png")}}" alt="Slide">
+						<div class="caption-group">
+						  <h2 class="caption title">
+								Apple <span class="primary">Store <strong>Ipod</strong></span>
+							</h2>
+							<h4 class="caption subtitle">& Phone</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+						</div>
+                    </li>
+                    <li>
+						<img src="{{ URL::asset("assets/homepage/img/h4-slide.png")}}" alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">
+								iPhone <span class="primary">6 <strong>Plus</strong></span>
+							</h2>
+							<h4 class="caption subtitle">Dual SIM</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+						</div>
+                    </li>
+                    <li>
+						<img src="{{ URL::asset("assets/homepage/img/h4-slide.png")}}" alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">
+								iPhone <span class="primary">6 <strong>Plus</strong></span>
+							</h2>
+							<h4 class="caption subtitle">Dual SIM</h4>
+							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+						</div>
+                    </li>
+                    <li>
+						<img src="{{ URL::asset("assets/homepage/img/h4-slide.png")}}" alt="Slide">
+						<div class="caption-group">
+							<h2 class="caption title">
+								iPhone <span class="primary">6 <strong>Plus</strong></span>
+							</h2>
+							<h4 class="caption subtitle">Dual SIM</h4>
 							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
 						</div>
 					</li>
@@ -393,7 +432,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-about-us">
-                        <h2>u<span>Stora</span></h2>
+                        <h2>CS<span>PC</span></h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
                         <div class="footer-social">
                             <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
@@ -445,7 +484,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2015 uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com" target="_blank">freshDesignweb.com</a></p>
+                        <p>&copy; 2019 cspc.com. All Rights Reserved. <a href="/" target="_blank">www.cspc.com</a></p>
                     </div>
                 </div>
                 
