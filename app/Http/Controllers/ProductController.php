@@ -21,9 +21,9 @@ class ProductController extends Controller
         select('products.name','products.qty','products.inprice','products.outprice','products.description','supplier.com_name as sup_name','category.category')->where('products.active',1)->get();
         return DataTables::of($pro)
                 ->addColumn('action',function($pro){
-                    '<a onclick="showData('.$pro->id.')" class="btn btn-sm btn-success"></a>'.' '.
-                    '<a onclick="Edit('.$pro->id.')" class="btn btn-primary btn-xs"></a>'.' '.
-                    '<a onclick="Delete('.$pro->id.')" class="btn btn-primary btn-xs"></a>';
+                    '<a onclick="showData('.$pro->id.')" class="btn btn-success btn-xs fa fa-check"></a>'.' '.
+                    '<a onclick="Edit('.$pro->id.')" class="btn btn-primary btn-xs fa fa-pencil"></a>'.' '.
+                    '<a onclick="Delete('.$pro->id.')" class="btn btn-danger btn-xs fa fa-trash-o"></a>';
                 })->make(true);
     }
     public function insert(Request $request){
