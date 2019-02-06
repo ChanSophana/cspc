@@ -18,7 +18,8 @@ Route::get('/', function () {
     $desktop=Product::select('name','outprice','description','image')->where('catid',2)->get();
     return view('welcome',['cate'=>$cate,'laptop'=>$laptop,'desktop'=>$desktop]);
 });
-Route::get('/home/product/', 'ProductController@index')->name('viewspro');
+Route::get('/home/product/all', 'ProductController@index')->name('viewspro');
+Route::get('/home/product/', 'ProductController@view');
 Route::post('/home/product/insert', 'ProductController@insert')->name('addpro');
 Route::post('/home/product/update', 'ProductController@update')->name('updatepro');
 Route::get('/home/category/', 'CategoryController@index');

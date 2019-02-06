@@ -19,13 +19,9 @@
             <th class="text-center">QTY</th>
             <th class="text-center">Price In</th>
             <th class="text-center">Price Out</th>
-            <th class="text-center"><i class="fa fa-edit"></i> Status</th>
+            <th class="text-center fa fa-edit">Action</th>
           </tr>
         </thead>
-        <?php
-            $i=1;
-            ?>
-            @foreach ($pro as $row)
         <tbody>                       
           {{-- <tr>
               <td>{{$i++}}</td>
@@ -42,11 +38,10 @@
             </td>
           </tr> --}}
         </tbody>
-        @endforeach
       </table>
   </div>
 </div>
-<div class="modal fade" id="addnewp" role="dialog">
+{{-- <div class="modal fade" id="addnewp" role="dialog">
   <div class="modal-dialog modal-lg">
     <!-- Modal content-->
     <div class="modal-content">
@@ -180,7 +175,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 @endsection
 @section('js')
 <script type="text/javascript" src="{{ URL::asset("assets/lib/DataTables/datatables.min.js")}}"></script>
@@ -198,7 +193,7 @@
                 {data:'qty',name:'qty'},
                 {data:'inprice',name:'inprice'},
                 {data:'outprice',name:'outprice'},
-                {data:'status',name:'status',
+                {data:'action',name:'action',
                 orderable:false,searchacle:false},
               ],
 

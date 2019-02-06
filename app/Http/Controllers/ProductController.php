@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 class ProductController extends Controller
 {
- 
     public function index(){
         $sup=Supplier::all();
         $cat=Category::all();
@@ -26,6 +25,10 @@ class ProductController extends Controller
                     '<a onclick="Delete('.$pro->id.')" class="btn btn-danger btn-xs fa fa-trash-o"></a>';
                 })->make(true);
     }
+    public function view(){
+        return view('Product.views');
+    }
+
     public function insert(Request $request){
         $pro=new Product;
         $pro->name=$request->input('name');
